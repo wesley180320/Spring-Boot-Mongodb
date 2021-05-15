@@ -58,4 +58,15 @@ public class Resources {
 		return ResponseEntity.created(uri).build();
 	}
 
+	
+	// Deletar por id
+		@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+		public ResponseEntity<Void> delete(@PathVariable String id){
+			
+			us.Delete(id);
+		
+			return ResponseEntity.noContent().build();
+		}
+	
+		
 }
