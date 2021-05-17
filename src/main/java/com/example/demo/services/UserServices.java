@@ -47,7 +47,21 @@ public class UserServices {
 
 	}
 
-	
+	public User update(User obj) {
+		
+		User newOBJ = findById(obj.getId());
+		
+		updateData(newOBJ, obj);
+		
+		return rep.save(newOBJ);
+	}
+
+	private void updateData(User newOBJ, User obj) {
+		
+		newOBJ.setEmail(obj.getEmail());
+		newOBJ.setName(obj.getName());
+		
+	}
 
 
 }

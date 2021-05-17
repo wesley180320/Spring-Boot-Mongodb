@@ -68,5 +68,16 @@ public class Resources {
 			return ResponseEntity.noContent().build();
 		}
 	
-		
+		// Atualizar dados
+		@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+		public ResponseEntity<Void> findById(@RequestBody UserDTO objDTO,@PathVariable String id){
+			
+			User obj = us.fromDto(objDTO) ;
+		    
+			obj.setId(id);
+		    
+		    obj = us.update(obj);
+			
+		    return ResponseEntity.noContent().build();
+		}
 }
